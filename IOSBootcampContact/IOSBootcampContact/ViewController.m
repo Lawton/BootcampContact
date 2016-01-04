@@ -23,12 +23,30 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    switch (section) {
+        case 0:
+            return [self.bugs count];
+            break;
+        case 1:
+            return [self.creatures count];
+            break;
+        default:
+            return 0;
+    }
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return NULL;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 0;
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:   (NSInteger)section
+{
+    return 0;
 }
 
 - (void)didReceiveMemoryWarning {
