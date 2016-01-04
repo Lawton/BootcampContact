@@ -16,7 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.bugs = @[@"ladybug", @"catterpillar", @"beetle"];
+    self.creatures = @[@"golem", @"troll", @"goblin"];
     // Do any additional setup after loading the view, typically from a nib.
+
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NULL;
 }
 
 - (void)didReceiveMemoryWarning {
