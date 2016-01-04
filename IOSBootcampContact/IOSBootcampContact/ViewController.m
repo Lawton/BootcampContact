@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self getContacts];
     self.bugs = [NSArray arrayWithObjects: @"ladybug", @"catterpillar", @"beetle", nil];
     self.creatures = [NSArray arrayWithObjects: @"golem", @"troll", @"goblin", nil];
 }
@@ -78,6 +78,27 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) getContacts {
+    NSString *urlString = @"http://api.randomuser.me/?results=5";
+    NSURL *randomContactURL = [NSURL URLWithString:urlString];
+    NSURLSession *mySession = [NSURLSession sharedSession];
+    [[mySession dataTaskWithURL:randomContactURL
+              completionHandler:^(NSData *data,
+                                  NSURLResponse *response,
+                                  NSError *error) {
+                  
+                  NSLog(@"dataAsString %@", [NSString stringWithUTF8String:[data bytes]]);
+                  NSError *error1;
+                  NSMutableDictionary *innerJson = [NSJSONSerialization
+                                                     JSONObjectWithData:data
+                                                     options:kNilOptions
+                                                     error:&error1];
+                  //parse
+                  NSArray *user = [innerJson objectForKey:@"results"];
+                  NSLog([NSString stringWithFormat:@"==============================%@", user]);
+              }] resume];
 }
 
 @end
