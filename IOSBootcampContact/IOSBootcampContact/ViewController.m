@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#define bugSection 0
+#define creatureSection 1
+#define numberOfSections 2
 
 @interface ViewController ()
 
@@ -16,37 +19,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.bugs = @[@"ladybug", @"catterpillar", @"beetle"];
-    self.creatures = @[@"golem", @"troll", @"goblin"];
-    // Do any additional setup after loading the view, typically from a nib.
-
+    
+    self.bugs = [NSArray arrayWithObjects: @"ladybug", @"catterpillar", @"beetle", nil];
+    self.creatures = [NSArray arrayWithObjects: @"golem", @"troll", @"goblin", nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
-        case 0:
+        case bugSection:
             return [self.bugs count];
             break;
-        case 1:
+        case creatureSection:
             return [self.creatures count];
             break;
         default:
             return 0;
     }
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NULL;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"creatures"];
+    
+    switch (indexPath.section)
+    {
+            
+        case bugSection:
+            cell.textLabel.text = [self.bugs    objectAtIndex:indexPath.row];
+            break;
+        case creatureSection:
+            cell.textLabel.text = [self.creatures     objectAtIndex:indexPath.row];
+            break;
+        default:
+            cell.textLabel.text = @"Not Found";
+            
+    }
+    
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return numberOfSections;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:   (NSInteger)section
 {
-    return 0;
+    switch (section) {
+        case bugSection:
+            return @"Bugs";
+            break;
+        case creatureSection:
+            return @"Creatures";
+            break;
+        default:
+            return 0;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
