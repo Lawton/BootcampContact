@@ -11,6 +11,8 @@
 @interface ContactDetailViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *firstNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *lastNameLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *contactImage;
 @property (nonatomic, strong) NSDictionary *contact;
 
 @end

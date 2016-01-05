@@ -10,7 +10,7 @@
 #import "ContactDetailViewController.h"
 #define peopleSection 0
 #define numberOfSections 1
-#define numberOfContacts 2
+#define numberOfContacts 50
 
 @interface ViewController ()
 
