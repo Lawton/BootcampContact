@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#define bugSection 0
-#define creatureSection 1
-#define numberOfSections 2
+#define peopleSection 0
+#define numberOfSections 1
+#define numberOfContacts 2
 
 @interface ViewController ()
 
@@ -18,19 +18,14 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     [self getContacts];
-    self.bugs = [NSArray arrayWithObjects: @"ladybug", @"catterpillar", @"beetle", nil];
-    self.creatures = [NSArray arrayWithObjects: @"golem", @"troll", @"goblin", nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
-        case bugSection:
-            return [self.bugs count];
-            break;
-        case creatureSection:
-            return [self.creatures count];
+        case peopleSection:
+            return numberOfContacts;
             break;
         default:
             return 0;
@@ -39,19 +34,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"creatures"];
-    
+  //TODO add section for first letter of contacts
     switch (indexPath.section)
     {
-            
-        case bugSection:
-            cell.textLabel.text = [self.bugs    objectAtIndex:indexPath.row];
-            break;
-        case creatureSection:
-            cell.textLabel.text = [self.creatures     objectAtIndex:indexPath.row];
+        case peopleSection:
+            cell.textLabel.text = [[self.people objectAtIndex:indexPath.row] valueForKeyPath:@"user.name.first"];
             break;
         default:
             cell.textLabel.text = @"Not Found";
-            
     }
     
     return cell;
@@ -61,14 +51,12 @@
 {
     return numberOfSections;
 }
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:   (NSInteger)section
 {
     switch (section) {
-        case bugSection:
-            return @"Bugs";
-            break;
-        case creatureSection:
-            return @"Creatures";
+        case peopleSection:
+            return @"People";
             break;
         default:
             return 0;
@@ -81,23 +69,22 @@
 }
 
 - (void) getContacts {
-    NSString *urlString = @"http://api.randomuser.me/?results=5";
+    NSString *urlString = [NSString stringWithFormat:@"http://api.randomuser.me/?results=%d", numberOfContacts] ;
     NSURL *randomContactURL = [NSURL URLWithString:urlString];
     NSURLSession *mySession = [NSURLSession sharedSession];
     [[mySession dataTaskWithURL:randomContactURL
               completionHandler:^(NSData *data,
                                   NSURLResponse *response,
                                   NSError *error) {
-                  
-                  NSLog(@"dataAsString %@", [NSString stringWithUTF8String:[data bytes]]);
                   NSError *error1;
                   NSMutableDictionary *innerJson = [NSJSONSerialization
                                                      JSONObjectWithData:data
                                                      options:kNilOptions
                                                      error:&error1];
-                  //parse
-                  NSArray *user = [innerJson objectForKey:@"results"];
-                  NSLog([NSString stringWithFormat:@"==============================%@", user]);
+                  self.people = [innerJson objectForKey:@"results"];
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      [self.tableView reloadData];
+                  });
               }] resume];
 }
 

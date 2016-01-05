@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fy4-Vh-CVq">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="459"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creatures" textLabel="oU6-ug-V6Q" style="IBUITableViewCellStyleDefault" id="2OO-AX-bbU">
@@ -43,8 +43,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lrt-5T-ZTj"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Pbv-qU-7aQ"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="NVv-2x-ICA"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QKR-kT-mvz"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -53,6 +53,9 @@
                     <navigationItem key="navigationItem" title="My Creatures" id="q73-XO-UhA">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Lux-IQ-Emh"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="fy4-Vh-CVq" id="nF0-AV-50G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
