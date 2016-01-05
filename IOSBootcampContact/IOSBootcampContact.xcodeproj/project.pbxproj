@@ -15,6 +15,7 @@
 		C57196581C3ADF0800F39A26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57196561C3ADF0800F39A26 /* LaunchScreen.storyboard */; };
 		C57196601C3B216600F39A26 /* DataReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C571965F1C3B216600F39A26 /* DataReceiver.m */; };
 		C57196621C3C127700F39A26 /* contact.m in Sources */ = {isa = PBXBuildFile; fileRef = C57196611C3C127700F39A26 /* contact.m */; };
+		C57196651C3C433100F39A26 /* ContactDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57196641C3C433100F39A26 /* ContactDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		C57196591C3ADF0800F39A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C571965F1C3B216600F39A26 /* DataReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataReceiver.m; sourceTree = "<group>"; };
 		C57196611C3C127700F39A26 /* contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contact.m; sourceTree = "<group>"; };
+		C57196631C3C429900F39A26 /* ContactDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailViewController.h; sourceTree = "<group>"; };
+		C57196641C3C433100F39A26 /* ContactDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				C57196591C3ADF0800F39A26 /* Info.plist */,
 				C57196481C3ADF0800F39A26 /* Supporting Files */,
 				C571965F1C3B216600F39A26 /* DataReceiver.m */,
+				C57196631C3C429900F39A26 /* ContactDetailViewController.h */,
+				C57196641C3C433100F39A26 /* ContactDetailViewController.m */,
 			);
 			path = IOSBootcampContact;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57196651C3C433100F39A26 /* ContactDetailViewController.m in Sources */,
 				C57196621C3C127700F39A26 /* contact.m in Sources */,
 				C57196601C3B216600F39A26 /* DataReceiver.m in Sources */,
 				C57196501C3ADF0800F39A26 /* ViewController.m in Sources */,
@@ -308,6 +314,7 @@
 				C571965E1C3ADF0800F39A26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

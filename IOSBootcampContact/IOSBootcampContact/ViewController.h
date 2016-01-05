@@ -1,4 +1,4 @@
-//
+
 //  ViewController.h
 //  IOSBootcampContact
 //
@@ -13,5 +13,5 @@
 @property (strong, nonatomic) NSArray *bugs;
 @property (strong, nonatomic) NSMutableArray *people;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
 @end

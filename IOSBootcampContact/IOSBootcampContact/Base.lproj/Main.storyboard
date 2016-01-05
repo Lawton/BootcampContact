@@ -38,7 +38,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ocS-NP-hpn" kind="show" id="5R2-zE-DcI"/>
+                                            <segue destination="ocS-NP-hpn" kind="show" identifier="showContactDetail" id="5R2-zE-DcI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="2642" y="343"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact Detail View Controller-->
         <scene sceneID="Xag-Eh-bxe">
             <objects>
-                <viewController id="ocS-NP-hpn" sceneMemberID="viewController">
+                <viewController id="ocS-NP-hpn" customClass="ContactDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wZ6-r8-bD8"/>
                         <viewControllerLayoutGuide type="bottom" id="nNE-a5-v6t"/>
@@ -72,8 +72,19 @@
                     <view key="view" contentMode="scaleToFill" id="jHH-63-kYC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdf-xp-LiU">
+                                <rect key="frame" x="20" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="Bdf-xp-LiU" id="XFu-Gn-DY8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mE-NZ-N64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

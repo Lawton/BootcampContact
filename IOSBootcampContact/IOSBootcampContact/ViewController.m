@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ContactDetailViewController.h"
 #define peopleSection 0
 #define numberOfSections 1
 #define numberOfContacts 2
@@ -25,7 +26,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case peopleSection:
-            return numberOfContacts;
+            return [self.people count];
             break;
         default:
             return 0;
@@ -86,6 +87,16 @@
                       [self.tableView reloadData];
                   });
               }] resume];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString: @"showContactDetail"]) {
+        NSIndexPath * index = [self.tableView indexPathForSelectedRow];
+        ContactDetailViewController * contactView = segue.destinationViewController;
+        contactView.contact = [self.people objectAtIndex:index.row];
+        
+        
+    }
 }
 
 @end
